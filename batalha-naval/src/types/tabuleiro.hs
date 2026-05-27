@@ -1,4 +1,4 @@
-module Main where
+module Tabuleiro where
 import System.IO
 -- criando as células para serem usadas no tabuleiro
 data Cell = Agua | Navio | Acertou | Errou
