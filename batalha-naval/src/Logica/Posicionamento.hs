@@ -1,6 +1,7 @@
-module Posicionamento where
+module Logica.Posicionamento where
 
-import Types
+import Tipos.Base
+
 
 -- Verifica se a coordenada é válida
 coordenadaValida :: Coordenada -> Bool
@@ -13,10 +14,10 @@ coordenadaValida (linha, coluna) =
 -- Gera as posições do Navio
 geraCorpo :: Coordenada -> Int -> Orientacao -> [Coordenada]
 geraCorpo (linha, coluna) tamanho H =    -- Navio Horizontal
-    [ (linha + deslocamento, coluna) | deslocamento <- [0 .. tamanho - 1] ]
+    [ (linha, coluna + deslocamento) | deslocamento <- [0 .. tamanho - 1] ]
 
 geraCorpo (linha, coluna) tamanho V =    -- Navio Vertical
-    [ (linha, coluna + deslocamento) | deslocamento <- [0 .. tamanho - 1] ]
+    [ (linha + deslocamento, coluna) | deslocamento <- [0 .. tamanho - 1] ]
 
 -- Verifica se uma posição está livre
 posicaoLivre :: Board -> Coordenada -> Bool
@@ -60,12 +61,6 @@ substituiNoTabuleiro (h:t) linha nova = h : substituiNoTabuleiro t (linha - 1) n
 colocarNavio :: Board -> [Coordenada] -> Board
 colocarNavio tabuleiro [] = tabuleiro
 colocarNavio tabuleiro (coord : resto) =
-    colocarNavio
-        tabuleiroAtualizado
-        resto
+    colocarNavio tabuleiroAtualizado resto
     where
-        tabuleiroAtualizado =
-            atualizaCelula
-                tabuleiro
-                coord
-                Navio
+        tabuleiroAtualizado = atualizaCelula tabuleiro coord Navio

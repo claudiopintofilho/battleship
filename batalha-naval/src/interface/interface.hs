@@ -1,3 +1,1 @@
-main :: IO ()
-main = do
-  putStrLn "Batalha Naval Protótipo"
+-- Aqui vai conter a Tela e os Emojis
