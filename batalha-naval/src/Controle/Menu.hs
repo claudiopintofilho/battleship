@@ -1,6 +1,7 @@
 module Controle.Menu where
 
-import Tipos.Base (printTabuleiro, tabuleiro)
+import Tipos.Base (tabuleiroVazio)
+import Interface.Interface (printTabuleiro)
 
 telaRegras :: IO ()
 telaRegras = do
@@ -20,7 +21,9 @@ telaJogo :: IO ()
 telaJogo = do
   putStrLn ""
   putStrLn "=== JOGO ==="
-  printTabuleiro tabuleiro tabuleiro 0
+  putStrLn "   JOGADOR 1                               JOGADOR 2"
+  -- Passando o tabuleiro vazio duas vezes para desenhar as duas matrizes de emojis
+  printTabuleiro tabuleiroVazio tabuleiroVazio 0
   putStrLn ""
   putStrLn "Aperte 1 para voltar ao menu"
   opcao <- getLine
@@ -29,13 +32,11 @@ telaJogo = do
     _   -> telaJogo
 
 telaSaida :: IO ()
-telaSaida = do
-  putStrLn ""
-  putStrLn "Obrigado por jogar! Ate logo!"
+telaSaida = putStrLn "\nObrigado por jogar! Ate logo!"
 
 menu :: IO ()
 menu = do
-  putStrLn "==== Batalha Naval ===="
+  putStrLn "\n==== Batalha Naval ===="
   putStrLn "1 - Jogar"
   putStrLn "2 - Regras"
   putStrLn "3 - Sair"

@@ -2,7 +2,13 @@ C:\Users\claud\battleship\battleship\batalha-naval\CHANGELOG.md:
   hash: 704a5f97365a151f542f0821bbb469175bc9a20cf473cd2dc20375ea2e47ca4c
 C:\Users\claud\battleship\battleship\batalha-naval\README.md:
   hash: 942425b716898a1f62bd4b6a880bc1df49b6be5991b09e968fce024e33e9b99d
+C:\Users\claud\battleship\battleship\batalha-naval\app\Main.hs:
+  hash: 400eb5fc63ffba6abeb53addce74231ed2f42ebe8a77f71476bd651f07156fc2
 C:\Users\claud\battleship\battleship\batalha-naval\batalha-naval.cabal:
-  hash: ac87fdac2b219bf868561897017ed637554e47386f426f6a24161b6f1132e09b
-C:\Users\claud\battleship\battleship\batalha-naval\src\Main.hs:
-  hash: 19348573ebec8f3eae592ed562f17fd36d7532f16c438983f7de47b56ebf8cb8
+  hash: f3207fc3791a3125d5e85668278e892f05c193a6ec72f29afa268b6de4063b5f
+C:\Users\claud\battleship\battleship\batalha-naval\src\Controle\Menu.hs:
+  hash: e4534b75c903dde711a23b2863d7ce992406eed363cc9206fa7f943b29107706
+C:\Users\claud\battleship\battleship\batalha-naval\src\Interface\Interface.hs:
+  hash: efe6edf37f124813a91607ac0df36f9f0c0bb16dc6b9495a0b1ba4f6982bcc3f
+C:\Users\claud\battleship\battleship\batalha-naval\src\Tipos\Base.hs:
+  hash: a2b59a2f69788806ee1d5f5a54ad230e82f986a1c49be432a28738244dde0421
