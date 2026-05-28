@@ -39,18 +39,14 @@ printTabuleiro (h:t) (h2:t2) n = do
 
 
 data Navios = Navios {
-    tipo :: String,
-    tamanho :: Int,
-    posicoes :: [Coordenada],
-    partesAtingidas :: [Coordenada]
-} deriving (Show, Eq)
+        tipo :: String,
+        tamanho :: Int,
+        posicoes :: [Coordenada],
+        partesAtingidas :: [Coordenada]
+    } deriving (Show, Eq)
 
 naviosPadrao :: [Navios]
-naviosPadrao = [
-    Navios "Grande" 3 [] [],
-    Navios "Medio" 2 [] [],
-    Navios "Pequeno" 1 [] []
-]
+naviosPadrao = [Navios "Grande" 3 [] [], Navios "Medio" 2 [] [], Navios "Pequeno" 1 [] []]
 
 -- Definindo a orientacao do navio 
 data Orientacao  = H | V deriving (Show, Eq)
