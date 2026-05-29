@@ -21,7 +21,7 @@ telaJogo :: IO ()
 telaJogo = do
   putStrLn ""
   putStrLn "=== JOGO ==="
-  putStrLn "   JOGADOR 1                               JOGADOR 2"
+  putStrLn "   JOGADOR 1                  JOGADOR 2"
   -- Passando o tabuleiro vazio duas vezes para desenhar as duas matrizes de emojis
   printTabuleiro tabuleiroVazio tabuleiroVazio 0
   putStrLn ""

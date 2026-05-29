@@ -20,7 +20,7 @@ printTabuleiro :: Tabuleiro -> Tabuleiro -> Int -> IO ()
 printTabuleiro t1 t2 0 = do
     -- Imprime a linha de números (colunas) antes de começar a desenhar as matrizes
     -- O espaço inicial compensa o número da linha e o espaço lateral
-    putStrLn "   0  1  2  3  4  5  6  7  8  9           0  1  2  3  4  5  6  7  8  9"
+    putStrLn "   0 1 2 3 4 5 6 7 8 9        0 1 2 3 4 5 6 7 8 9"
     desenharLinhas t1 t2 0
 printTabuleiro t1 t2 n = desenharLinhas t1 t2 n
 
