@@ -8,6 +8,9 @@ data Celula = Agua | Navio | Acertou | Errou deriving (Show, Eq)
 -- Padronizado para Tabuleiro
 type Tabuleiro = [[Celula]]
 
+type Board = Tabuleiro
+type Cell = Celula
+
 -- Função para criar uma linha de água (usando a função replicate do Haskell que é mais limpa)
 linhaVazia :: [Celula]
 linhaVazia = replicate 10 Agua

@@ -64,3 +64,12 @@ colocarNavio tabuleiro (coord : resto) =
     colocarNavio tabuleiroAtualizado resto
     where
         tabuleiroAtualizado = atualizaCelula tabuleiro coord Navio
+
+-- Posicionar navio
+posicionarNavio :: Tabuleiro -> Coordenada -> Int -> Orientacao -> Maybe Tabuleiro
+posicionarNavio tabuleiro inicio tamanho orientacao =
+    if posicaoValida tabuleiro corpoNavio
+        then Just (colocarNavio tabuleiro corpoNavio)
+        else Nothing
+    where
+        corpoNavio = geraCorpo inicio tamanho orientacao
