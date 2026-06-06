@@ -1,13 +1,14 @@
+{-# OPTIONS_GHC -Wno-missing-export-lists #-}
 module Interface.Interface where
 
 import Tipos.Base
 
 -- Converte cada construtor no seu respectivo Emoji
 makeCell :: Celula -> String
-makeCell Agua     = "🌊"
-makeCell Navio    = "🚢"
-makeCell Acertou  = "💥"
-makeCell Errou    = "💨"
+makeCell Agua     = " ~ "
+makeCell Navio    = " # "
+makeCell Acertou  = " X "
+makeCell Errou    = " O "
 
 -- Converte uma linha inteira de células em uma única String de emojis
 converteLinha :: [Celula] -> String
@@ -20,15 +21,15 @@ printTabuleiro :: Tabuleiro -> Tabuleiro -> Int -> IO ()
 printTabuleiro t1 t2 0 = do
     -- Imprime a linha de números (colunas) antes de começar a desenhar as matrizes
     -- O espaço inicial compensa o número da linha e o espaço lateral
-    putStrLn "   0 1 2 3 4 5 6 7 8 9        0 1 2 3 4 5 6 7 8 9"
+    putStrLn "    0  1  2  3  4  5  6  7  8  9         0  1  2  3  4  5  6  7  8  9"
     desenharLinhas t1 t2 0
 printTabuleiro t1 t2 n = desenharLinhas t1 t2 n
 
 -- Funções de manipulação que você já tinha:
 coordenadaValida :: Coordenada -> Tabuleiro -> Bool
 coordenadaValida (x, y) tab =
-    not (null tab) && not (null (head tab)) &&
-    x >= 0 && y >= 0 && x < length tab && y < length (head tab)
+    not (null tab) && not (null (tab !! 0)) &&
+    x >= 0 && y >= 0 && x < length tab && y < length (tab !! 0)
 
 obter :: Coordenada -> Tabuleiro -> Maybe Celula
 obter (x, y) tab
@@ -52,7 +53,7 @@ atualizaIndice n elemento (x:xs) = x : atualizaIndice (n - 1) elemento xs
 desenharLinhas :: Tabuleiro -> Tabuleiro -> Int -> IO ()
 desenharLinhas [] [] _ = return ()
 desenharLinhas (h1:t1) (h2:t2) n = do
-    -- Se o número da linha for menor que 10, colocamos um espaço extra para não desalinhar
     let prefixo = if n < 10 then show n ++ " " else show n
     putStrLn (prefixo ++ " " ++ converteLinha h1 ++ "       " ++ converteLinha h2)
     desenharLinhas t1 t2 (n + 1)
+desenharLinhas _ _ _ = return ()
