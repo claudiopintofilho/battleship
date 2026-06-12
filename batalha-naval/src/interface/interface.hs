@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -Wno-missing-export-lists #-}
+﻿{-# OPTIONS_GHC -Wno-missing-export-lists #-}
 module Interface.Interface where
 
 import Tipos.Base
@@ -20,8 +20,11 @@ printTabuleiro t1 t2 n = desenharLinhas t1 t2 n
 
 coordenadaDentroTab :: Coordenada -> Tabuleiro -> Bool
 coordenadaDentroTab (x, y) tab =
-    not (null tab) && not (null (head tab)) &&
-    x >= 0 && y >= 0 && x < length tab && y < length (head tab)
+    not (null tab) &&
+    x >= 0 && y >= 0 && x < length tab &&
+    case drop x tab of
+        (linha:_) -> y < length linha
+        []        -> False
 
 obter :: Coordenada -> Tabuleiro -> Maybe Celula
 obter (x, y) tab
@@ -38,7 +41,7 @@ marca (x, y) novo tab
     | otherwise = tab
 
 atualizaIndice :: Int -> a -> [a] -> [a]
-atualizaIndice _ _ []     = []
+atualizaIndice _ _ []            = []
 atualizaIndice 0 elemento (_:xs) = elemento : xs
 atualizaIndice n elemento (x:xs) = x : atualizaIndice (n - 1) elemento xs
 
