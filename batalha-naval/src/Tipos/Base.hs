@@ -2,20 +2,16 @@ module Tipos.Base where
 
 type Coordenada = (Int, Int)
 
--- Padronizado para Celula
 data Celula = Agua | Navio | Acertou | Errou deriving (Show, Eq)
 
--- Padronizado para Tabuleiro
 type Tabuleiro = [[Celula]]
 
 type Board = Tabuleiro
 type Cell = Celula
 
--- Função para criar uma linha de água (usando a função replicate do Haskell que é mais limpa)
 linhaVazia :: [Celula]
 linhaVazia = replicate 10 Agua
 
--- Cria a matriz 10x10 preenchida com Agua
 tabuleiroVazio :: Tabuleiro
 tabuleiroVazio = replicate 10 linhaVazia
 

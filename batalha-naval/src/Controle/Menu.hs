@@ -1,15 +1,11 @@
-module Controle.Menu where
 {-# OPTIONS_GHC -Wno-missing-export-lists #-}
+module Controle.Menu where
 
-import Tipos.Base (tabuleiroVazio)
-import Interface.Interface (printTabuleiro)
 import Controle.Jogo (iniciarJogo)
 import System.IO (hFlush, stdout)
 
 telaRegras :: IO ()
 telaRegras = do
-
-  --Opcoes de Menu
   putStrLn "============================================================================"
   putStrLn "#                        R E G R A S                                       #"
   putStrLn "============================================================================"
@@ -25,22 +21,8 @@ telaRegras = do
     "1" -> menu
     _   -> telaRegras
 
--- telaJogo :: IO ()
--- telaJogo = do
---   putStrLn ""
---   putStrLn "=== JOGO ==="
---   putStrLn "   JOGADOR 1                  JOGADOR 2"
---   -- Passando o tabuleiro vazio duas vezes para desenhar as duas matrizes de emojis
---   printTabuleiro tabuleiroVazio tabuleiroVazio 0
---   putStrLn ""
---   putStrLn "Aperte 1 para voltar ao menu"
---   opcao <- getLine
---   case opcao of
---     "1" -> menu
---     _   -> telaJogo
-
 telaJogo :: IO ()
-telaJogo = iniciarJogo --Chama o Loop Principal do Jogo, onde o jogador vai interagir com os tabuleiros e atirar
+telaJogo = iniciarJogo
 
 telaSaida :: IO ()
 telaSaida = putStrLn "\nObrigado por jogar! Ate logo! :)\n"
@@ -49,10 +31,9 @@ menu :: IO ()
 menu = do
   putStrLn ""
   putStrLn "============================================================================"
-  putStrLn "#                        B A T A L H A   N A V A L                         #"
+  putStrLn "#                        B A T A L H A   N A V A L                        #"
   putStrLn "============================================================================"
   putStrLn ""
-
   putStrLn "1 - Jogar"
   putStrLn "2 - Regras"
   putStrLn "3 - Sair"

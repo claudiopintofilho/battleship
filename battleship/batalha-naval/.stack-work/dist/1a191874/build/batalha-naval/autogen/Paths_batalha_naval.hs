@@ -46,12 +46,12 @@ getBinDir, getLibDir, getDynLibDir, getDataDir, getLibexecDir, getSysconfDir :: 
 
 
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
-bindir     = "C:\\Users\\luizm\\battleship\\.stack-work\\install\\56fb6816\\bin"
-libdir     = "C:\\Users\\luizm\\battleship\\.stack-work\\install\\56fb6816\\lib\\x86_64-windows-ghc-9.10.3-b42a\\batalha-naval-0.1.0.0-9EAcvbh7UhvLYj5CEZAT3Q-batalha-naval"
-dynlibdir  = "C:\\Users\\luizm\\battleship\\.stack-work\\install\\56fb6816\\lib\\x86_64-windows-ghc-9.10.3-b42a"
-datadir    = "C:\\Users\\luizm\\battleship\\.stack-work\\install\\56fb6816\\share\\x86_64-windows-ghc-9.10.3-b42a\\batalha-naval-0.1.0.0"
-libexecdir = "C:\\Users\\luizm\\battleship\\.stack-work\\install\\56fb6816\\libexec\\x86_64-windows-ghc-9.10.3-b42a\\batalha-naval-0.1.0.0"
-sysconfdir = "C:\\Users\\luizm\\battleship\\.stack-work\\install\\56fb6816\\etc"
+bindir     = "C:\\Users\\claud\\battleship\\battleship\\batalha-naval\\.stack-work\\install\\972b69b9\\bin"
+libdir     = "C:\\Users\\claud\\battleship\\battleship\\batalha-naval\\.stack-work\\install\\972b69b9\\lib\\x86_64-windows-ghc-9.10.3-b42a\\batalha-naval-0.1.0.0-9EAcvbh7UhvLYj5CEZAT3Q-batalha-naval"
+dynlibdir  = "C:\\Users\\claud\\battleship\\battleship\\batalha-naval\\.stack-work\\install\\972b69b9\\lib\\x86_64-windows-ghc-9.10.3-b42a"
+datadir    = "C:\\Users\\claud\\battleship\\battleship\\batalha-naval\\.stack-work\\install\\972b69b9\\share\\x86_64-windows-ghc-9.10.3-b42a\\batalha-naval-0.1.0.0"
+libexecdir = "C:\\Users\\claud\\battleship\\battleship\\batalha-naval\\.stack-work\\install\\972b69b9\\libexec\\x86_64-windows-ghc-9.10.3-b42a\\batalha-naval-0.1.0.0"
+sysconfdir = "C:\\Users\\claud\\battleship\\battleship\\batalha-naval\\.stack-work\\install\\972b69b9\\etc"
 
 getBinDir     = catchIO (getEnv "batalha_naval_bindir")     (\_ -> return bindir)
 getLibDir     = catchIO (getEnv "batalha_naval_libdir")     (\_ -> return libdir)

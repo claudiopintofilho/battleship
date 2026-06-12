@@ -1,75 +1,54 @@
+{-# OPTIONS_GHC -Wno-missing-export-lists #-}
 module Logica.Posicionamento where
 
 import Tipos.Base
 
-
--- Verifica se a coordenada é válida
 coordenadaValida :: Coordenada -> Bool
 coordenadaValida (linha, coluna) =
-    linha >= 0 &&
-    linha <= 9 &&
-    coluna >= 0 &&
-    coluna <= 9
+    linha  >= 0 && linha  <= 9 &&
+    coluna >= 0 && coluna <= 9
 
--- Gera as posições do Navio
 geraCorpo :: Coordenada -> Int -> Orientacao -> [Coordenada]
-geraCorpo (linha, coluna) tamanho H =    -- Navio Horizontal
-    [ (linha, coluna + deslocamento) | deslocamento <- [0 .. tamanho - 1] ]
+geraCorpo (linha, coluna) tam H =
+    [ (linha, coluna + d) | d <- [0 .. tam - 1] ]
+geraCorpo (linha, coluna) tam V =
+    [ (linha + d, coluna) | d <- [0 .. tam - 1] ]
 
-geraCorpo (linha, coluna) tamanho V =    -- Navio Vertical
-    [ (linha + deslocamento, coluna) | deslocamento <- [0 .. tamanho - 1] ]
-
--- Verifica se uma posição está livre
 posicaoLivre :: Board -> Coordenada -> Bool
 posicaoLivre tabuleiro (linha, coluna) =
     tabuleiro !! linha !! coluna == Agua
 
--- Verifica se a posição é válida para colocar o návio
 posicaoValida :: Board -> [Coordenada] -> Bool
 posicaoValida tabuleiro coordenadas =
-    coordenadasValidas && posicoesLivres
-    where
-        -- todas dentro do tabuleiro
-        coordenadasValidas =
-            all coordenadaValida coordenadas
+    all coordenadaValida coordenadas &&
+    all (posicaoLivre tabuleiro) coordenadas
 
-        -- todas livres
-        posicoesLivres =
-            all (posicaoLivre tabuleiro) coordenadas
-
---Atualiza a célula no tabuleiro
 atualizaCelula :: Board -> Coordenada -> Cell -> Board
-atualizaCelula tabuleiro (linha,coluna) novoValor = 
+atualizaCelula tabuleiro (linha, coluna) novoValor =
     substituiNoTabuleiro tabuleiro linha linhaAtualizada
-    where 
-        linhaAtual = tabuleiro !! linha
+    where
+        linhaAtual      = tabuleiro !! linha
         linhaAtualizada = substituiNaLinha linhaAtual coluna novoValor
 
---Função para substituir a célula na linha e coluna correta
 substituiNaLinha :: [Cell] -> Int -> Cell -> [Cell]
-substituiNaLinha [] _ _  = []
-substituiNaLinha (h:t) 0 novo = novo : t
-substituiNaLinha (h:t) col novo = h : substituiNaLinha t (col-1) novo 
+substituiNaLinha []    _ _    = []
+substituiNaLinha (_:t) 0 novo = novo : t
+substituiNaLinha (h:t) col novo = h : substituiNaLinha t (col - 1) novo
 
---Função para modificar a linha no tabuleiro
 substituiNoTabuleiro :: Board -> Int -> [Cell] -> Board
-substituiNoTabuleiro [] _ _ = []
-substituiNoTabuleiro (h:t) 0 nova = nova : t
+substituiNoTabuleiro []    _ _    = []
+substituiNoTabuleiro (_:t) 0 nova = nova : t
 substituiNoTabuleiro (h:t) linha nova = h : substituiNoTabuleiro t (linha - 1) nova
 
--- Colocar navio no tabuleiro
 colocarNavio :: Board -> [Coordenada] -> Board
 colocarNavio tabuleiro [] = tabuleiro
-colocarNavio tabuleiro (coord : resto) =
-    colocarNavio tabuleiroAtualizado resto
-    where
-        tabuleiroAtualizado = atualizaCelula tabuleiro coord Navio
+colocarNavio tabuleiro (coord:resto) =
+    colocarNavio (atualizaCelula tabuleiro coord Navio) resto
 
--- Posicionar navio
 posicionarNavio :: Tabuleiro -> Coordenada -> Int -> Orientacao -> Maybe Tabuleiro
-posicionarNavio tabuleiro inicio tamanho orientacao =
+posicionarNavio tabuleiro inicio tam orientacao =
     if posicaoValida tabuleiro corpoNavio
         then Just (colocarNavio tabuleiro corpoNavio)
         else Nothing
     where
-        corpoNavio = geraCorpo inicio tamanho orientacao
+        corpoNavio = geraCorpo inicio tam orientacao

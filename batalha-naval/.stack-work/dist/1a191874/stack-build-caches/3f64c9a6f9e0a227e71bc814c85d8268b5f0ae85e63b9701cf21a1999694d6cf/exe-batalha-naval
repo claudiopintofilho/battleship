@@ -1,0 +1,20 @@
+C:\Users\luizm\battleship\batalha-naval\CHANGELOG.md:
+  hash: 598d07e2e4bf4afa1243dc3662e50c8f7657e16e91080083ec6a95a368727183
+C:\Users\luizm\battleship\batalha-naval\README.md:
+  hash: 7812952d0881b54358dd21a994cf4af8c7113f4783ad46bf87917c461189fb2a
+C:\Users\luizm\battleship\batalha-naval\app\Main.hs:
+  hash: 400eb5fc63ffba6abeb53addce74231ed2f42ebe8a77f71476bd651f07156fc2
+C:\Users\luizm\battleship\batalha-naval\batalha-naval.cabal:
+  hash: 0d28b3277047b7b3c2b4e7fb458fe23e6da06a3565b2071b97546d98557f35c4
+C:\Users\luizm\battleship\batalha-naval\src\Controle\Jogo.hs:
+  hash: 7a6aefee16eff927fa3146e29fe96f55e76450da10c2dd1a24c42a08cc50d1ef
+C:\Users\luizm\battleship\batalha-naval\src\Controle\Menu.hs:
+  hash: 67992bc9e2169b78fc95b6d0482d73cd6328fcc10c7d5a4740ca42b62102f2e5
+C:\Users\luizm\battleship\batalha-naval\src\Interface\Interface.hs:
+  hash: 77830d07de33fd24e9f9265cc69a6d861fdd4036184796ce22c663f008dce50c
+C:\Users\luizm\battleship\batalha-naval\src\Logica\Atirar.hs:
+  hash: 66328096106ff92fd0296a00f3de27a9b5ba65fe4ff3d483c81ea71270fdc970
+C:\Users\luizm\battleship\batalha-naval\src\Logica\Posicionamento.hs:
+  hash: 357a904f3d29a97b48aa141ba5780516fe77d6af7ca868fcda05b813dd845837
+C:\Users\luizm\battleship\batalha-naval\src\Tipos\Base.hs:
+  hash: f17da9ff521327e89942f31539d96b27fdf3090816cb56b9a28f1f9664214445
