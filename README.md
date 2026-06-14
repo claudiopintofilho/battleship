@@ -1,82 +1,84 @@
-# 🚢 Batalha Naval em Haskell 🌊
+# Batalha Naval em Haskell
 
-![Haskell](https://img.shields.io/badge/Haskell-5e5086?style=for-the-badge&logo=haskell&logoColor=white)
-![Stack](https://img.shields.io/badge/Stack-Build-blue?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Conclu%C3%ADdo-success?style=for-the-badge)
+Projeto desenvolvido em Haskell que implementa o jogo clássico de Batalha Naval para execução no terminal. O objetivo do projeto foi praticar conceitos de programação funcional, como funções puras, recursão, tipos algébricos, imutabilidade de dados e separação entre lógica de negócio e operações de entrada e saída.
 
-Um jogo clássico de Batalha Naval desenvolvido inteiramente em **Haskell** para execução no terminal. Este projeto foi construído do zero em 15 dias como parte do estudo de programação funcional, aplicando conceitos como imutabilidade, funções puras, funções de alta ordem e separação estrita de efeitos colaterais (Mundo Limpo vs. Mundo Sujo / IO).
+## Funcionalidades
 
----
+- Jogo para dois jogadores no terminal.
+- Posicionamento de navios com validação de coordenadas.
+- Impedimento de sobreposição de navios.
+- Sistema de ataques e atualização dos tabuleiros.
+- Ocultação dos navios do adversário durante a partida.
+- Tratamento de entradas inválidas para evitar encerramentos inesperados do programa.
+- Verificação automática da condição de vitória.
 
-## 🎮 Funcionalidades
-
-* **Interface Clássica no Terminal:** Menu interativo com arte ASCII e tabuleiros formatados lado a lado.
-* **Sistema de Turnos (PvP):** Jogo local para 2 jogadores com alternância automática de turnos.
-* **Sistema de Posicionamento Seguro:** Posicionamento de navios com validação matemática que impede navios fora do tabuleiro ou sobreposição de peças.
-* **"Névoa de Guerra" (Fog of War):** Uso de High-Order Functions (`map`) para ocultar os navios intactos do inimigo durante o turno do atirador.
-* **Blindagem de Input (Anti-Crash):** Sistema robusto de leitura de entradas usando `reads`, garantindo que o programa não quebre caso o usuário digite letras ou caracteres especiais em vez de coordenadas numéricas.
-* **Condição de Vitória Dinâmica:** Varredura rápida da matriz utilizando as funções nativas `any` e `elem` para detectar o fim da partida.
-
----
-
-## 🏗️ Arquitetura do Projeto
-
-O projeto foi rigorosamente modularizado para separar a lógica matemática e os tipos puros do "Mundo Sujo" das operações de Input/Output (`IO`), facilitando o desenvolvimento em equipe e a manutenção.
+## Organização do Projeto
 
 ```text
 batalha-naval/
 ├── app/
-│   └── Main.hs                 # Ponto de entrada do programa
+│   └── Main.hs
 ├── src/
 │   ├── Tipos/
-│   │   └── Base.hs             # Definição das matrizes, tipos puros (Cell, Board) e dados
+│   │   └── Base.hs
 │   ├── Logica/
-│   │   ├── Atirar.hs           # Regras puras de substituição e acertos
-│   │   └── Posicionamento.hs   # Regras puras de coordenadas e ocupação
+│   │   ├── Atirar.hs
+│   │   └── Posicionamento.hs
 │   ├── Interface/
-│   │   └── Interface.hs        # Renderização visual dos emojis/caracteres e matrizes
+│   │   └── Interface.hs
 │   └── Controle/
-│       ├── Jogo.hs             # Loop principal recursivo de turnos e Inputs
-│       └── Menu.hs             # Telas estáticas, navegação e arte ASCII
-└── batalha-naval.cabal         # Configuração de dependências e módulos do Stack
-
-# 🚀 Como Executar
-
-## 📋 Pré-requisitos
-
-Para rodar este projeto, você precisará ter os seguintes softwares instalados em sua máquina:
-
-- **GHC (Glasgow Haskell Compiler)**
-- **Stack**
-
-A forma recomendada de instalar ambos é utilizando o **GHCup**.
-
-## 🔧 Instalação e Execução
-
-### 1. Clone este repositório
-
-```bash
-git clone https://github.com/SeuUsuario/NomeDoRepositorio.git
+│       ├── Jogo.hs
+│       └── Menu.hs
+└── batalha-naval.cabal
 ```
 
-### 2. Acesse a pasta do projeto
+### Descrição dos módulos
+
+| Módulo | Responsabilidade |
+|---------|------------------|
+| Base.hs | Definição dos tipos utilizados no jogo |
+| Posicionamento.hs | Regras de posicionamento dos navios |
+| Atirar.hs | Processamento dos disparos e atualização do tabuleiro |
+| Interface.hs | Exibição dos tabuleiros e elementos visuais |
+| Jogo.hs | Controle do fluxo principal da partida |
+| Menu.hs | Navegação pelos menus do sistema |
+| Main.hs | Ponto de entrada da aplicação |
+
+## Requisitos
+
+Para executar o projeto é necessário ter instalado:
+
+- GHC (Glasgow Haskell Compiler)
+- Stack
+
+A instalação através do GHCup é recomendada.
+
+## Como executar
+
+Clone o repositório:
 
 ```bash
-cd NomeDoRepositorio
+git clone https://github.com/usuario/batalha-naval.git
 ```
 
-### 3. Compile o projeto utilizando o Stack
+Entre na pasta do projeto:
+
+```bash
+cd batalha-naval
+```
+
+Compile o projeto:
 
 ```bash
 stack build
 ```
 
-### 4. Execute o jogo
+Execute a aplicação:
 
 ```bash
 stack run
 ```
 
-## ✅ Pronto!
+## Observações
 
-Após executar o comando acima, o jogo será iniciado e estará pronto para uso.
+Este projeto foi desenvolvido com foco no aprendizado de programação funcional utilizando Haskell e na aplicação prática dos conceitos estudados durante a disciplina.
