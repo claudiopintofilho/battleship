@@ -84,7 +84,14 @@ loopJogo tabP1 tabP2 turnoP1 = do
     if turnoP1
         then do
             let novoTabP2 = atirar coord tabP2
-            loopJogo tabP1 novoTabP2 False
+            if jogoAcabou novoTabP2
+                then putStrLn "\nJOGADOR 1 VENCEU! Todos os navios inimigos foram afundados!"
+                else loopJogo tabP1 novoTabP2 False
         else do
             let novoTabP1 = atirar coord tabP1
-            loopJogo novoTabP1 tabP2 True
+            if jogoAcabou novoTabP1
+                then putStrLn "\nJOGADOR 2 VENCEU! Todos os navios inimigos foram afundados!"
+                else loopJogo novoTabP1 tabP2 True
+
+jogoAcabou :: Tabuleiro -> Bool
+jogoAcabou tab = not (any (elem Navio) tab)
