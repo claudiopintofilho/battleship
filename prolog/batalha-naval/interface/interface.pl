@@ -36,7 +36,7 @@ converte_linha([Celula | Resto], Texto) :-
 % Equivalente a "printTabuleiro t1 t2 n"; aqui o contador de
 % linha comeca sempre em 0, entao nao precisamos do 3o parametro.
 print_tabuleiro(T1, T2) :-
-    write('   0 1 2 3 4 5 6 7 8 9         0 1 2 3 4 5 6 7 8 9'), nl,
+    write('   0 1 2 3 4 5 6 7 8 9                  0 1 2 3 4 5 6 7 8 9'), nl,
     desenha_linhas(T1, T2, 0).
 
 desenha_linhas([], [], _) :- !.
