@@ -20,9 +20,9 @@
 % make_cell(+Celula, -Simbolo)
 % Equivalente a "makeCell"
 make_cell(agua,    '🌊 ').
-make_cell(navio,   '🛥️ ').
-make_cell(acertou, '💥 ').
-make_cell(errou,   '💨 ').
+make_cell(navio,   '🛥️  ').
+make_cell(acertou, '💥  ').
+make_cell(errou,   '💨  ').
 
 % converte_linha(+Linha, -Texto)
 % Equivalente a "converteLinha linha = concatMap makeCell linha"
